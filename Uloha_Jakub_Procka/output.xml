@@ -1,0 +1,1153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.9.7 on win32)" generated="20211101 22:11:37.158" rpa="false" schemaversion="2">
+<suite id="s1" name="Robot" source="C:\Users\jakub\Desktop\Sporitelna\Uloha\Uloha_Jakub_Procka\robot">
+<suite id="s1-s1" name="Tasks" source="C:\Users\jakub\Desktop\Sporitelna\Uloha\Uloha_Jakub_Procka\robot\tasks.robot">
+<test id="s1-s1-t1" name="Tasks">
+<kw name="Open Browser To Start Page" library="resource">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${SERVER}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211101 22:11:37.390" level="INFO">Opening browser 'Chrome' to base url 'http://loadrunnertips.com/LoadRunner_Correlation_Challenge_Mod.aspx'.</msg>
+<status status="PASS" starttime="20211101 22:11:37.390" endtime="20211101 22:11:40.585"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20211101 22:11:40.585" endtime="20211101 22:11:40.585"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:37.389" endtime="20211101 22:11:40.585"/>
+</kw>
+<kw name="Start" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>head_btnStart</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:40.587" level="INFO">Clicking button 'head_btnStart'.</msg>
+<status status="PASS" starttime="20211101 22:11:40.587" endtime="20211101 22:11:41.816"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:40.586" endtime="20211101 22:11:41.817"/>
+</kw>
+<kw name="Input Number" library="resource">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number}</var>
+<arg>head_lblMagicno</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:41.851" level="INFO">${number} = 8395</msg>
+<status status="PASS" starttime="20211101 22:11:41.818" endtime="20211101 22:11:41.851"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>head_txtMacigNo</arg>
+<arg>${number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:41.852" level="INFO">Typing text '8395' into text field 'head_txtMacigNo'.</msg>
+<status status="PASS" starttime="20211101 22:11:41.851" endtime="20211101 22:11:42.010"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:41.818" endtime="20211101 22:11:42.010"/>
+</kw>
+<kw name="Next" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>head_btnNext</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:42.012" level="INFO">Clicking button 'head_btnNext'.</msg>
+<status status="PASS" starttime="20211101 22:11:42.011" endtime="20211101 22:11:43.103"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:42.011" endtime="20211101 22:11:43.103"/>
+</kw>
+<kw name="Next2" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Button1</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:43.105" level="INFO">Clicking button 'Button1'.</msg>
+<status status="PASS" starttime="20211101 22:11:43.105" endtime="20211101 22:11:43.693"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:43.104" endtime="20211101 22:11:43.693"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>21</value>
+<iter>
+<var name="${i}">0</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20211101 22:11:43.695" endtime="20211101 22:11:43.695"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20211101 22:11:43.695" endtime="20211101 22:11:43.695"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20211101 22:11:43.695" endtime="20211101 22:11:43.695"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20211101 22:11:43.695" endtime="20211101 22:11:43.695"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20211101 22:11:43.695" endtime="20211101 22:11:43.695"/>
+</kw>
+<status status="NOT RUN" starttime="20211101 22:11:43.694" endtime="20211101 22:11:43.695"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:43.694" endtime="20211101 22:11:43.695"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:43.694" endtime="20211101 22:11:43.695"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:43.696" level="INFO">${j} = 1</msg>
+<status status="PASS" starttime="20211101 22:11:43.696" endtime="20211101 22:11:43.696"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.696" level="INFO">${status} = head_lblstatus1</msg>
+<status status="PASS" starttime="20211101 22:11:43.696" endtime="20211101 22:11:43.696"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:43.726" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:43.696" endtime="20211101 22:11:43.726"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.727" level="INFO">${check} = head_chk1</msg>
+<status status="PASS" starttime="20211101 22:11:43.726" endtime="20211101 22:11:43.727"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:43.727" endtime="20211101 22:11:43.727"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:43.696" endtime="20211101 22:11:43.727"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:43.695" endtime="20211101 22:11:43.727"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:43.695" endtime="20211101 22:11:43.727"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:43.728" level="INFO">${j} = 2</msg>
+<status status="PASS" starttime="20211101 22:11:43.728" endtime="20211101 22:11:43.728"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.729" level="INFO">${status} = head_lblstatus2</msg>
+<status status="PASS" starttime="20211101 22:11:43.728" endtime="20211101 22:11:43.729"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:43.811" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:43.729" endtime="20211101 22:11:43.811"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.812" level="INFO">${check} = head_chk2</msg>
+<status status="PASS" starttime="20211101 22:11:43.811" endtime="20211101 22:11:43.812"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:43.812" endtime="20211101 22:11:43.812"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:43.727" endtime="20211101 22:11:43.812"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:43.727" endtime="20211101 22:11:43.812"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:43.727" endtime="20211101 22:11:43.812"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:43.813" level="INFO">${j} = 3</msg>
+<status status="PASS" starttime="20211101 22:11:43.813" endtime="20211101 22:11:43.813"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.814" level="INFO">${status} = head_lblstatus3</msg>
+<status status="PASS" starttime="20211101 22:11:43.814" endtime="20211101 22:11:43.814"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:43.845" level="INFO">${flight_status} = On Time</msg>
+<status status="PASS" starttime="20211101 22:11:43.814" endtime="20211101 22:11:43.845"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.845" level="INFO">${check} = head_chk3</msg>
+<status status="PASS" starttime="20211101 22:11:43.845" endtime="20211101 22:11:43.845"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${check}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:43.846" level="INFO">Selecting checkbox 'head_chk3'.</msg>
+<status status="PASS" starttime="20211101 22:11:43.846" endtime="20211101 22:11:43.904"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:43.846" endtime="20211101 22:11:43.904"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:43.813" endtime="20211101 22:11:43.904"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:43.813" endtime="20211101 22:11:43.904"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:43.813" endtime="20211101 22:11:43.904"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:43.904" level="INFO">${j} = 4</msg>
+<status status="PASS" starttime="20211101 22:11:43.904" endtime="20211101 22:11:43.904"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.905" level="INFO">${status} = head_lblstatus4</msg>
+<status status="PASS" starttime="20211101 22:11:43.905" endtime="20211101 22:11:43.905"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:43.928" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:43.905" endtime="20211101 22:11:43.928"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.928" level="INFO">${check} = head_chk4</msg>
+<status status="PASS" starttime="20211101 22:11:43.928" endtime="20211101 22:11:43.928"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:43.929" endtime="20211101 22:11:43.929"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:43.904" endtime="20211101 22:11:43.929"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:43.904" endtime="20211101 22:11:43.929"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:43.904" endtime="20211101 22:11:43.929"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:43.929" level="INFO">${j} = 5</msg>
+<status status="PASS" starttime="20211101 22:11:43.929" endtime="20211101 22:11:43.929"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.930" level="INFO">${status} = head_lblstatus5</msg>
+<status status="PASS" starttime="20211101 22:11:43.930" endtime="20211101 22:11:43.930"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:43.954" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:43.930" endtime="20211101 22:11:43.954"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.955" level="INFO">${check} = head_chk5</msg>
+<status status="PASS" starttime="20211101 22:11:43.955" endtime="20211101 22:11:43.955"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:43.955" endtime="20211101 22:11:43.955"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:43.929" endtime="20211101 22:11:43.955"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:43.929" endtime="20211101 22:11:43.955"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:43.929" endtime="20211101 22:11:43.955"/>
+</iter>
+<iter>
+<var name="${i}">6</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:43.956" level="INFO">${j} = 6</msg>
+<status status="PASS" starttime="20211101 22:11:43.956" endtime="20211101 22:11:43.956"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.956" level="INFO">${status} = head_lblstatus6</msg>
+<status status="PASS" starttime="20211101 22:11:43.956" endtime="20211101 22:11:43.956"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:43.983" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:43.956" endtime="20211101 22:11:43.983"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.984" level="INFO">${check} = head_chk6</msg>
+<status status="PASS" starttime="20211101 22:11:43.983" endtime="20211101 22:11:43.984"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:43.984" endtime="20211101 22:11:43.984"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:43.956" endtime="20211101 22:11:43.984"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:43.956" endtime="20211101 22:11:43.984"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:43.956" endtime="20211101 22:11:43.984"/>
+</iter>
+<iter>
+<var name="${i}">7</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:43.985" level="INFO">${j} = 7</msg>
+<status status="PASS" starttime="20211101 22:11:43.984" endtime="20211101 22:11:43.985"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:43.985" level="INFO">${status} = head_lblstatus7</msg>
+<status status="PASS" starttime="20211101 22:11:43.985" endtime="20211101 22:11:43.985"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.012" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:43.985" endtime="20211101 22:11:44.012"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.012" level="INFO">${check} = head_chk7</msg>
+<status status="PASS" starttime="20211101 22:11:44.012" endtime="20211101 22:11:44.012"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:44.012" endtime="20211101 22:11:44.013"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:43.984" endtime="20211101 22:11:44.013"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:43.984" endtime="20211101 22:11:44.013"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:43.984" endtime="20211101 22:11:44.013"/>
+</iter>
+<iter>
+<var name="${i}">8</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.013" level="INFO">${j} = 8</msg>
+<status status="PASS" starttime="20211101 22:11:44.013" endtime="20211101 22:11:44.013"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.014" level="INFO">${status} = head_lblstatus8</msg>
+<status status="PASS" starttime="20211101 22:11:44.013" endtime="20211101 22:11:44.014"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.036" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:44.014" endtime="20211101 22:11:44.036"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.036" level="INFO">${check} = head_chk8</msg>
+<status status="PASS" starttime="20211101 22:11:44.036" endtime="20211101 22:11:44.036"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:44.037" endtime="20211101 22:11:44.037"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.013" endtime="20211101 22:11:44.037"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.013" endtime="20211101 22:11:44.037"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.013" endtime="20211101 22:11:44.037"/>
+</iter>
+<iter>
+<var name="${i}">9</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.038" level="INFO">${j} = 9</msg>
+<status status="PASS" starttime="20211101 22:11:44.038" endtime="20211101 22:11:44.038"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.039" level="INFO">${status} = head_lblstatus9</msg>
+<status status="PASS" starttime="20211101 22:11:44.038" endtime="20211101 22:11:44.039"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.062" level="INFO">${flight_status} = On Time</msg>
+<status status="PASS" starttime="20211101 22:11:44.039" endtime="20211101 22:11:44.062"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.063" level="INFO">${check} = head_chk9</msg>
+<status status="PASS" starttime="20211101 22:11:44.063" endtime="20211101 22:11:44.063"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${check}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.064" level="INFO">Selecting checkbox 'head_chk9'.</msg>
+<status status="PASS" starttime="20211101 22:11:44.063" endtime="20211101 22:11:44.123"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.063" endtime="20211101 22:11:44.123"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.038" endtime="20211101 22:11:44.123"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.038" endtime="20211101 22:11:44.123"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.038" endtime="20211101 22:11:44.124"/>
+</iter>
+<iter>
+<var name="${i}">10</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.124" level="INFO">${j} = 10</msg>
+<status status="PASS" starttime="20211101 22:11:44.124" endtime="20211101 22:11:44.124"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.125" level="INFO">${status} = head_lblstatus10</msg>
+<status status="PASS" starttime="20211101 22:11:44.124" endtime="20211101 22:11:44.125"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.147" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:44.125" endtime="20211101 22:11:44.147"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.148" level="INFO">${check} = head_chk10</msg>
+<status status="PASS" starttime="20211101 22:11:44.148" endtime="20211101 22:11:44.148"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:44.148" endtime="20211101 22:11:44.148"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.124" endtime="20211101 22:11:44.148"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.124" endtime="20211101 22:11:44.148"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.124" endtime="20211101 22:11:44.148"/>
+</iter>
+<iter>
+<var name="${i}">11</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.149" level="INFO">${j} = 11</msg>
+<status status="PASS" starttime="20211101 22:11:44.149" endtime="20211101 22:11:44.149"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.149" level="INFO">${status} = head_lblstatus11</msg>
+<status status="PASS" starttime="20211101 22:11:44.149" endtime="20211101 22:11:44.149"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.173" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:44.149" endtime="20211101 22:11:44.173"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.174" level="INFO">${check} = head_chk11</msg>
+<status status="PASS" starttime="20211101 22:11:44.173" endtime="20211101 22:11:44.174"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:44.174" endtime="20211101 22:11:44.174"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.149" endtime="20211101 22:11:44.174"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.148" endtime="20211101 22:11:44.174"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.148" endtime="20211101 22:11:44.174"/>
+</iter>
+<iter>
+<var name="${i}">12</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.175" level="INFO">${j} = 12</msg>
+<status status="PASS" starttime="20211101 22:11:44.175" endtime="20211101 22:11:44.175"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.175" level="INFO">${status} = head_lblstatus12</msg>
+<status status="PASS" starttime="20211101 22:11:44.175" endtime="20211101 22:11:44.175"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.197" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:44.175" endtime="20211101 22:11:44.197"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.198" level="INFO">${check} = head_chk12</msg>
+<status status="PASS" starttime="20211101 22:11:44.197" endtime="20211101 22:11:44.198"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:44.198" endtime="20211101 22:11:44.198"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.174" endtime="20211101 22:11:44.198"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.174" endtime="20211101 22:11:44.198"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.174" endtime="20211101 22:11:44.198"/>
+</iter>
+<iter>
+<var name="${i}">13</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.199" level="INFO">${j} = 13</msg>
+<status status="PASS" starttime="20211101 22:11:44.198" endtime="20211101 22:11:44.199"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.199" level="INFO">${status} = head_lblstatus13</msg>
+<status status="PASS" starttime="20211101 22:11:44.199" endtime="20211101 22:11:44.199"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.222" level="INFO">${flight_status} = On Time</msg>
+<status status="PASS" starttime="20211101 22:11:44.199" endtime="20211101 22:11:44.222"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.222" level="INFO">${check} = head_chk13</msg>
+<status status="PASS" starttime="20211101 22:11:44.222" endtime="20211101 22:11:44.222"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${check}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.223" level="INFO">Selecting checkbox 'head_chk13'.</msg>
+<status status="PASS" starttime="20211101 22:11:44.223" endtime="20211101 22:11:44.279"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.222" endtime="20211101 22:11:44.279"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.198" endtime="20211101 22:11:44.279"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.198" endtime="20211101 22:11:44.279"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.198" endtime="20211101 22:11:44.279"/>
+</iter>
+<iter>
+<var name="${i}">14</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.280" level="INFO">${j} = 14</msg>
+<status status="PASS" starttime="20211101 22:11:44.280" endtime="20211101 22:11:44.280"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.281" level="INFO">${status} = head_lblstatus14</msg>
+<status status="PASS" starttime="20211101 22:11:44.280" endtime="20211101 22:11:44.281"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.303" level="INFO">${flight_status} = On Time</msg>
+<status status="PASS" starttime="20211101 22:11:44.281" endtime="20211101 22:11:44.303"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.304" level="INFO">${check} = head_chk14</msg>
+<status status="PASS" starttime="20211101 22:11:44.304" endtime="20211101 22:11:44.304"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${check}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.305" level="INFO">Selecting checkbox 'head_chk14'.</msg>
+<status status="PASS" starttime="20211101 22:11:44.304" endtime="20211101 22:11:44.366"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.304" endtime="20211101 22:11:44.366"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.280" endtime="20211101 22:11:44.366"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.280" endtime="20211101 22:11:44.366"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.280" endtime="20211101 22:11:44.366"/>
+</iter>
+<iter>
+<var name="${i}">15</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.367" level="INFO">${j} = 15</msg>
+<status status="PASS" starttime="20211101 22:11:44.367" endtime="20211101 22:11:44.367"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.367" level="INFO">${status} = head_lblstatus15</msg>
+<status status="PASS" starttime="20211101 22:11:44.367" endtime="20211101 22:11:44.367"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.390" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:44.367" endtime="20211101 22:11:44.390"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.391" level="INFO">${check} = head_chk15</msg>
+<status status="PASS" starttime="20211101 22:11:44.390" endtime="20211101 22:11:44.391"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:44.391" endtime="20211101 22:11:44.391"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.367" endtime="20211101 22:11:44.391"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.366" endtime="20211101 22:11:44.391"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.366" endtime="20211101 22:11:44.391"/>
+</iter>
+<iter>
+<var name="${i}">16</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.392" level="INFO">${j} = 16</msg>
+<status status="PASS" starttime="20211101 22:11:44.391" endtime="20211101 22:11:44.392"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.392" level="INFO">${status} = head_lblstatus16</msg>
+<status status="PASS" starttime="20211101 22:11:44.392" endtime="20211101 22:11:44.392"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.416" level="INFO">${flight_status} = On Time</msg>
+<status status="PASS" starttime="20211101 22:11:44.392" endtime="20211101 22:11:44.416"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.417" level="INFO">${check} = head_chk16</msg>
+<status status="PASS" starttime="20211101 22:11:44.416" endtime="20211101 22:11:44.417"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${check}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.417" level="INFO">Selecting checkbox 'head_chk16'.</msg>
+<status status="PASS" starttime="20211101 22:11:44.417" endtime="20211101 22:11:44.474"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.417" endtime="20211101 22:11:44.475"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.391" endtime="20211101 22:11:44.475"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.391" endtime="20211101 22:11:44.475"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.391" endtime="20211101 22:11:44.475"/>
+</iter>
+<iter>
+<var name="${i}">17</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.475" level="INFO">${j} = 17</msg>
+<status status="PASS" starttime="20211101 22:11:44.475" endtime="20211101 22:11:44.475"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.476" level="INFO">${status} = head_lblstatus17</msg>
+<status status="PASS" starttime="20211101 22:11:44.476" endtime="20211101 22:11:44.476"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.498" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:44.476" endtime="20211101 22:11:44.498"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.499" level="INFO">${check} = head_chk17</msg>
+<status status="PASS" starttime="20211101 22:11:44.498" endtime="20211101 22:11:44.499"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:44.499" endtime="20211101 22:11:44.499"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.475" endtime="20211101 22:11:44.499"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.475" endtime="20211101 22:11:44.499"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.475" endtime="20211101 22:11:44.499"/>
+</iter>
+<iter>
+<var name="${i}">18</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.500" level="INFO">${j} = 18</msg>
+<status status="PASS" starttime="20211101 22:11:44.499" endtime="20211101 22:11:44.500"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.500" level="INFO">${status} = head_lblstatus18</msg>
+<status status="PASS" starttime="20211101 22:11:44.500" endtime="20211101 22:11:44.500"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.523" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:44.500" endtime="20211101 22:11:44.523"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.524" level="INFO">${check} = head_chk18</msg>
+<status status="PASS" starttime="20211101 22:11:44.523" endtime="20211101 22:11:44.524"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:44.524" endtime="20211101 22:11:44.524"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.499" endtime="20211101 22:11:44.524"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.499" endtime="20211101 22:11:44.524"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.499" endtime="20211101 22:11:44.524"/>
+</iter>
+<iter>
+<var name="${i}">19</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.525" level="INFO">${j} = 19</msg>
+<status status="PASS" starttime="20211101 22:11:44.525" endtime="20211101 22:11:44.525"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.525" level="INFO">${status} = head_lblstatus19</msg>
+<status status="PASS" starttime="20211101 22:11:44.525" endtime="20211101 22:11:44.525"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.549" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:44.525" endtime="20211101 22:11:44.549"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.549" level="INFO">${check} = head_chk19</msg>
+<status status="PASS" starttime="20211101 22:11:44.549" endtime="20211101 22:11:44.549"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:44.550" endtime="20211101 22:11:44.550"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.524" endtime="20211101 22:11:44.550"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.524" endtime="20211101 22:11:44.550"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.524" endtime="20211101 22:11:44.550"/>
+</iter>
+<iter>
+<var name="${i}">20</var>
+<if>
+<branch type="IF" condition="${i} &gt; 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${j}</var>
+<arg>${i}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211101 22:11:44.551" level="INFO">${j} = 20</msg>
+<status status="PASS" starttime="20211101 22:11:44.551" endtime="20211101 22:11:44.551"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${status}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_lblstatus</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.551" level="INFO">${status} = head_lblstatus20</msg>
+<status status="PASS" starttime="20211101 22:11:44.551" endtime="20211101 22:11:44.551"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${flight_status}</var>
+<arg>${status}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.576" level="INFO">${flight_status} = Delay</msg>
+<status status="PASS" starttime="20211101 22:11:44.551" endtime="20211101 22:11:44.576"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${check}</var>
+<arg>SEPARATOR=</arg>
+<arg>head_chk</arg>
+<arg>${j}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20211101 22:11:44.577" level="INFO">${check} = head_chk20</msg>
+<status status="PASS" starttime="20211101 22:11:44.576" endtime="20211101 22:11:44.577"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${flight_status}' == '${ontime}'</arg>
+<arg>Select Checkbox</arg>
+<arg>${check}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211101 22:11:44.577" endtime="20211101 22:11:44.577"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.551" endtime="20211101 22:11:44.577"/>
+</branch>
+<status status="PASS" starttime="20211101 22:11:44.550" endtime="20211101 22:11:44.577"/>
+</if>
+<status status="PASS" starttime="20211101 22:11:44.550" endtime="20211101 22:11:44.577"/>
+</iter>
+<status status="PASS" starttime="20211101 22:11:43.694" endtime="20211101 22:11:44.577"/>
+</for>
+<kw name="Next3" library="resource">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>head_btnNext3</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211101 22:11:44.578" level="INFO">Clicking button 'head_btnNext3'.</msg>
+<status status="PASS" starttime="20211101 22:11:44.578" endtime="20211101 22:11:45.191"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:44.578" endtime="20211101 22:11:45.191"/>
+</kw>
+<status status="PASS" starttime="20211101 22:11:37.388" endtime="20211101 22:11:45.192"/>
+</test>
+<status status="PASS" starttime="20211101 22:11:37.185" endtime="20211101 22:11:45.194"/>
+</suite>
+<status status="PASS" starttime="20211101 22:11:37.160" endtime="20211101 22:11:45.196"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot">Robot</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tasks">Robot.Tasks</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
