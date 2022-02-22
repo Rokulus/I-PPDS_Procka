@@ -1,4 +1,4 @@
 # I-PPDS_Jakub_Procka
-Repozitár pre zadania na predmet Paralelné programovanie a distribuované systémy
+Repository for exercises on subject I-PPDS.
 
-Veľmi sa ospravedlnujem za chybu pri cvičení 1. Chcel som vymazať z repozitáru nepotrebné veci a vymazali sa mi aj všetky predošlé commity ktoré som mal spravené. 
+I'am very sorry for my mistake with github with exercise 1. I wanted to clean up the main branch but I managed to deleted content of branch for exercise 1. 
