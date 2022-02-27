@@ -20,4 +20,14 @@ Second exercise was to use barrier in cycle.
 
 The first solution with Sempahore is used from seminar. 
 
+The main goal was to rewrite program with Event instead of Semaphore. In this solution I used clear functionaly of Event which set Event all over again. I defined clear function for SimpleBarrier that just calls Event.clear(). The wait function is defined same as from the first exercise where we used simple barrier. 
+
+The main event was to decide where to put the event.clear function. I clear barrier 2 after barrier 1 and barrier 1 after barrier 2 and code functionality works. 
+It goes like:
+- The threads print "before barrier".
+- They all wait for each other in barrier 1. 
+- After all printed out "before barrier", the barrier 2 is cleared and they print out "after barrier".
+- They wait for each other at the barrier 2. 
+- After all printer out "after barrier", the barrier 1 is cleared and they can start the cycle all over again.  
+
 
