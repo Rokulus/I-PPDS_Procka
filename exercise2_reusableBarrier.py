@@ -1,6 +1,6 @@
 from random import randint
 from time import sleep
-from fei.ppds import Thread, Semaphore, Mutex
+from fei.ppds import Thread, Semaphore, Mutex, Event
 from fei.ppds import print
  
  
@@ -9,16 +9,19 @@ class SimpleBarrier:
         self.N = N
         self.C = 0
         self.M = Mutex()
-        self.T = Semaphore(0)
+        self.T = Event()
  
     def wait(self):
-        self.M.lock()
         self.C += 1
         if self.C == self.N:
             self.C = 0
-            self.T.signal(self.N)
-        self.M.unlock()
+            self.T.set()
+        self.M.lock()
         self.T.wait()
+        self.M.unlock()
+    
+    def clear(self):
+        self.T.clear()
  
  
 def barrier_example(barrier, thread_id):
@@ -42,8 +45,10 @@ def barrier_cycle(b1, b2, thread_id):
     while True:
         before_barrier(thread_id)
         b1.wait()
-        b2.wait()
+        b2.clear()
         after_barrier(thread_id)
+        b2.wait()
+        b1.clear()
 
 
 THREADS = 10
