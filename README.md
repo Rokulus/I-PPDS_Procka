@@ -14,4 +14,10 @@ Definition of the function wait:
 - It is checked if counter is equeal to the number of threads. If is then event.set() is called and all of the threads are good to go
 - I used mutex when the event.wait() is called. If I would not use mutex the threads would left as they pleased but when I did they left as they came (they came like: 0-1-2-3 and they left the same way 0-1-2-3)
 
+# Reusable Barrier - 2. exercise
+
+Second exercise was to use barrier in cycle. 
+
+The first solution with Sempahore is used from seminar. 
+
 
