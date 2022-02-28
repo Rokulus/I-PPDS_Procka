@@ -30,4 +30,22 @@ It goes like:
 - They wait for each other at the barrier 2. 
 - After all printer out "after barrier", the barrier 1 is cleared and they can start the cycle all over again.  
 
+# Fibonacci - 3. exercise
+
+I managed to solved this only with Event and Mutex. 
+
+I tried many diffrent things with Semaphore but none seems to work for me. Some solutions worked but only when I used to print thread_id (for example, it could print anything and it worked) inside the function. I did not used print from fei.ppds module so I don't really get why it worked there. **I have to study more about semaphore**. 
+
+To answer questions from Exercise:
+1. What is the smallest number of synchronization objects (semaphores, mutexes, events) needed to solve this task?
+- I managed to solve this with using one Event and one Mutex. 
+2. Which of the adopted synchronization patterns (mutual exclusion, signaling, rendezvous, barrier) can (reasonably) be used in solving this problem? Specifically describe how the synchronization pattern is used in your solution.
+- The base of the code is taken from the seminar. My function "only_one" goes like this:
+    - I want to achieve that each thread is doing fibonacci after one another and they have to go after one another like this: 0-1-2-3-4-5-6-7-8-9-... So each thread have a spesific thread_id which the function takes as an argument.
+    - In class SimpleBarrier I have self.C . I use this as an counter to achieve that each thread goead after one another.
+    - The While cycle checks if all of the threads already did it's job.
+    - The If checks if it's the turn of the wanted thread base on the counter. 
+        - If it's not then thread is going to wait. 
+        - If it is then it's locked and counter is increased and all of the previous thread are unlocked (Event is set). And thread leave the function.   
+
 
