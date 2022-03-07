@@ -70,7 +70,7 @@ def consumer(shared, consume: Callable[[], float]):
 
 def main():
     storage = 10
-    producers = 10
+    producers = 20
     graph = []
 
     for produce in range(10):
@@ -79,7 +79,7 @@ def main():
             j = 10
             for i in range(j):
                 shared = Shared(storage)
-                x = 200
+                x = 100
                 [Thread(consumer, shared, lambda: randint(0, 10) / x) for i in range(consumers)]
                 [Thread(producer, shared, lambda: produce / x) for i in range(producers)]
 
