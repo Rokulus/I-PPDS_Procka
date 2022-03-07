@@ -36,35 +36,35 @@ class Shared():
 
 def producer(shared, produce: Callable[[], float]):
     while True:
-        """produkcia"""
+        """production"""
         sleep(produce())
-        """kontrola volneho miesta v sklade"""
+        """control of free space in storage"""
         shared.free.wait()
         if shared.finished:
             break
-        """ziskanie vylucneho pristupu ku skladu"""
+        """gain access to storage"""
         shared.M.lock()
-        """ulozenie vyrobku v sklade"""
+        """save product in storage"""
         shared.count += 1
-        """odidenie zo skladu"""
+        """leave storage"""
         shared.M.unlock()
-        """zvysenie poctu zasob na sklade"""
+        """increase number of products in storage"""
         shared.items.signal()
 
 
 def consumer(shared, consume: Callable[[], float]):
     while True:
-        """kontrola poctu zasob na sklade"""
+        """control content of storage"""
         shared.items.wait()
         if shared.finished:
             break
-        """ziskanie pristupu do skladu"""
+        """gain access to storage"""
         shared.M.lock()
-        """ziskanie vyrobku zo skladu"""
+        """gain product from storage"""
         shared.free.signal()
-        """odidenie zo skladu"""
+        """leave storage"""
         shared.M.unlock()
-        """spracovanie vyrobku"""
+        """consume product"""
         sleep(consume())
 
 
@@ -90,10 +90,8 @@ def main():
                 shared.free.signal(100)
 
                 produced = shared.count
-                """Počet vyrobených výrobkov za jednotku času"""
                 items = produced / sleep_time
                 items_sum += items
-            """počet spracovaných výrobkov za jednotku času"""
             items_sum_average = items_sum / j
             graph.append((produce / x, consumers, items_sum_average))
 
@@ -106,9 +104,9 @@ def plot(graph: list):
     x = [a[0] for a in graph]
     y = [a[1] for a in graph]
     z = [a[2] for a in graph]
-    ax.set_xlabel('Čas produkcie (s)')
-    ax.set_ylabel('Počet konzumentov')
-    ax.set_zlabel('Počet výrobkov za sekundu')
+    ax.set_xlabel('Time to produce (s)')
+    ax.set_ylabel('Number of Consumers')
+    ax.set_zlabel('Number of products per second')
     ax.plot_trisurf(x, y, z, cmap='magma')
     plt.show()
 
