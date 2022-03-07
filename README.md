@@ -11,8 +11,6 @@ Settings:
 -   Number of Producers: 10
 -   Storage size: 100
 
-Graph:
-
-(https://raw.githubusercontent.com/Rokulus/I-PPDS_Procka/03/images/base_setting.png)
+![Bad Release](https://raw.githubusercontent.com/Rokulus/I-PPDS_Procka/03/images/base_setting.png)
 
 If time to produce is increased so is number of products per second. While the number of consumers is increasing the number of products is increasing too so there is more products in storage then there is consumers.
