@@ -3,7 +3,9 @@ This is a documentation for the thrid exercise from the subject I-PPDS.
 
 For the third exercise I chose Producer-Consumer.
 
-# 1. experiment
+In the first experiment I declared base setting that I will edit in the following experiments.
+
+# 1. experiment - Base Settings
 Settings:
 -   Time to produce: n / x where n = 1-9 and x = 100
 -   Tme to consume: randint(0, 10) / x where x = 100
@@ -13,7 +15,7 @@ Settings:
 
 ![Bad Release](https://raw.githubusercontent.com/Rokulus/I-PPDS_Procka/03/images/base_setting.png)
 
-If time to produce is increased so is number of products per second. While the number of consumers is increasing the number of products is increasing too so there is more products in storage then there is consumers.
+If time to produce is decrease so is number of products per second. While the number of consumers is increasing the number of products is increasing too so there is more products in storage then there is consumers.
 
 # 2. experiment
 Settings:
@@ -38,3 +40,15 @@ Settings:
 ![Bad Release](https://raw.githubusercontent.com/Rokulus/I-PPDS_Procka/03/images/experiment3.png)
 
 I increased the Storage size to 20. Diffrence from the last graph is that data are more consistent.
+
+# 4. experiment
+Settings:
+-   Time to produce: n / x where n = 1-9 and x = 200
+-   Tme to consume: randint(0, 10) / x where x = 200
+-   Number of Consumers: 10
+-   Number of Producers: 10
+-   Storage size: 10
+
+![Bad Release](https://raw.githubusercontent.com/Rokulus/I-PPDS_Procka/03/images/experiment4.png)
+
+I decrease time to produce and time to consume. In this graph we can best see that with decreased time to produce products the more productes are produced.
