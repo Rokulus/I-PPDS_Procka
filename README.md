@@ -26,3 +26,15 @@ Settings:
 ![Bad Release](https://raw.githubusercontent.com/Rokulus/I-PPDS_Procka/03/images/experiment2.png)
 
 I increased number of Consumers to max 20 and in the graph we can see that number of products decreased. Interesting is that number of them is 800 which is 300 more then from the previous graph.
+
+# 3. experiment
+Settings:
+-   Time to produce: n / x where n = 1-9 and x = 100
+-   Tme to consume: randint(0, 10) / x where x = 100
+-   Number of Consumers: 10
+-   Number of Producers: 10
+-   Storage size: 20
+
+![Bad Release](https://raw.githubusercontent.com/Rokulus/I-PPDS_Procka/03/images/experiment3.png)
+
+I increased the Storage size to 20. Diffrence from the last graph is that data are more consistent.
