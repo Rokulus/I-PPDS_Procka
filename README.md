@@ -9,7 +9,7 @@ Settings:
 -   Tme to consume: randint(0, 10) / x where x = 100
 -   Number of Consumers: 10
 -   Number of Producers: 10
--   Storage size: 100
+-   Storage size: 10
 
 ![Bad Release](https://raw.githubusercontent.com/Rokulus/I-PPDS_Procka/03/images/base_setting.png)
 
