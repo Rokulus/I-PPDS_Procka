@@ -74,7 +74,7 @@ def main():
     graph = []
 
     for produce in range(10):
-        for consumers in range(1, 11):
+        for consumers in range(10, 21):
             items_sum = 0
             j = 10
             for i in range(j):
