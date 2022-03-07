@@ -17,7 +17,7 @@ Settings:
 
 If time to produce is decrease so is number of products per second. While the number of consumers is increasing the number of products is increasing too so there is more products in storage then there is consumers.
 
-# 2. experiment - Increase number of Consumerss
+# 2. experiment - Increase number of Consumers
 Settings:
 -   Time to produce: n / x where n = 1-9 and x = 100
 -   Tme to consume: randint(0, 10) / x where x = 100
@@ -29,7 +29,7 @@ Settings:
 
 I increased number of Consumers to max 20 and in the graph we can see that number of products decreased. Interesting is that number of them is 800 which is 300 more then from the previous graph.
 
-# 3. experiment - Increase Storage zise
+# 3. experiment - Increase Storage size
 Settings:
 -   Time to produce: n / x where n = 1-9 and x = 100
 -   Tme to consume: randint(0, 10) / x where x = 100
@@ -41,7 +41,7 @@ Settings:
 
 I increased the Storage size to 20. Diffrence from the last graph is that data are more consistent.
 
-# 4. experiment - Decrease time to Produce and time to Consumes
+# 4. experiment - Decrease time to Produce and time to Consume
 Settings:
 -   Time to produce: n / x where n = 1-9 and x = 200
 -   Tme to consume: randint(0, 10) / x where x = 200
