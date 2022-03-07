@@ -69,12 +69,12 @@ def consumer(shared, consume: Callable[[], float]):
 
 
 def main():
-    storage = 10
+    storage = 20
     producers = 10
     graph = []
 
     for produce in range(10):
-        for consumers in range(10, 21):
+        for consumers in range(1, 11):
             items_sum = 0
             j = 10
             for i in range(j):
