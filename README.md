@@ -71,4 +71,4 @@ The base of the code is taken from Nuclear Power Plant #1 exercise in [4. cviče
                 validData.signal()
 
 # Printout
-![Bad Release](https://raw.githubusercontent.com/Rokulus/I-PPDS_Procka/04/images/power_plant2.png)
+![Bad Release](https://raw.githubusercontent.com/Rokulus/I-PPDS_Procka/04/images/power_plant.png)
