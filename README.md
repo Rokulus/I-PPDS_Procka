@@ -37,6 +37,7 @@ The base of the code is taken from Nuclear Power Plant #1 exercise in [4. cviče
                 print('monit "%02d":
                       pocet_citajucich_monitorov=%02d\n
                       trvanie_citania=%5.3f')
+                sleep(trvanie_citania)
                 // Data was updated, we can now leave a storage
                 ls_monitor(accessData).unlock()
 
@@ -62,13 +63,11 @@ The base of the code is taken from Nuclear Power Plant #1 exercise in [4. cviče
                       pocet_zapisujucich_cidiel=%02d,               trvanie_zapisu=%03d\n')
                 sleep(trvanie_zapisu)
 
-                // It is unlocked here because monitors can read older news from
-                // sensors. If we would signal valida_data here
-                // (as in Nuclear Power Plant #1) the monitors would wait
-                // for every sensor to finish it's job.
+                // Monitors can work only if all of th sensors did it's job so we
+                // unlock them after that.
                 ls_cidlo(accessData).unlock()
 
-                // After sensor write that we signal that data is valid
+                // Last sensor did it's job so we can signal that data are valid.
                 validData.signal()
 
 # Printout
