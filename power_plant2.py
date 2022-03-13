@@ -4,7 +4,7 @@ Nuclear Power Plant #2
 """
 from random import randint
 from time import sleep
-from fei.ppds import Thread, Semaphore, Mutex, Event
+from fei.ppds import Thread, Semaphore, Mutex, Event, print
 
 
 class LightSwitch():
@@ -57,6 +57,7 @@ def monitor(monitor_id, valid_data, turniket, ls_monitor, access_data):
         print(f'monit "{monitor_id:02d}": '
               f'pocet_citajucich_monitorov={pocet_citajucich_monitorov:02d}'
               f'trvanie_citania={trvanie_citania:5.3f}')
+        sleep(trvanie_citania)
         ls_monitor.unlock(access_data)
 
 
@@ -83,13 +84,11 @@ def cidlo(cidlo_id, turniket, ls_cidlo, valid_data, access_data):
               f'trvanie_zapisu={trvanie_zapisu:5.3f}')
         sleep(trvanie_zapisu)
 
-        """It is unlocked here because monitors can read older news from
-            sensors. If we would signal valida_data here
-            (as in Nuclear Power Plant #1) the monitors would wait
-            for every sensor to finish it's job."""
+        """Monitors can work only if all of th sensors did it's job so we
+           unlock them after that."""
         ls_cidlo.unlock(access_data)
 
-        """Last sensor did it's job"""
+        """Last sensor did it's job so we can signal that data are valid."""
         valid_data.signal()
 
 
