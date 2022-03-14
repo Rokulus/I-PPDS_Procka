@@ -3,6 +3,12 @@ This is a documentation for the fourth exercise from the subject I-PPDS.
 
 The base of the code is taken from Nuclear Power Plant #1 exercise in [4. cvičenie – Večerajúci filozofi, Atómová elektráreň](https://uim.fei.stuba.sk/i-ppds/4-cvicenie-vecerajuci-filozofi-atomova-elektraren-%f0%9f%8d%bd%ef%b8%8f/).
 
+# Analysis
+In Nuclear Power Plant #1 we had to use turniket to avoid starvation of monitors.
+In Nuclear Power Plant #2 the situation is reversed where we have too many monitors so we have to avoid starvation of sensors. That means that now we use turniket in sensors.
+
+Now in Nuclear Power Plant #2 monitors must wait until all sensors finished it's jobs. This is achieved by
+changing last two lines in cidlo.
 
 # Pseudocode
 
