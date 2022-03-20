@@ -89,7 +89,7 @@ def cook(i, shared):
         print(f'cook {i}: cooking')
         sleep(randint(50, 200) / 100)
 
-        """Last cook make annoucment that all cooks finished cooking.
+        """Last cook make announcement that all cooks finished cooking.
         """
         shared.bc.wait(last=f'cook {i}: all finished cooking and {M} servings --> pot')
         """Here only ONE cook wakes up savages that pot is full.
