@@ -12,8 +12,8 @@ number_of_customers = 10
 
 class Shared:
     def __init__(self):
-        """We want that customer wait for barber and barber wait for customer and
-           we want them to start at the same time. That's why we
+        """We want that customer wait for barber and barber wait for customer
+           and we want them to start at the same time. That's why we
            use Semaphore for them."""
         self.customer = Semaphore(0)
         self.barber = Semaphore(0)
@@ -93,7 +93,7 @@ def main():
     barber_employee = Thread(barber, shared)
 
     for i in range(number_of_customers):
-        customers.append(Thread(customer, i , shared))
+        customers.append(Thread(customer, i, shared))
 
     for t in customers:
         t.join()
