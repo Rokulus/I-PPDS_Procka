@@ -65,9 +65,9 @@ def prime_number():
                     flag = True
                     break
             if flag:
-                count += 1
                 print(f'{number} is not a prime number')
             else:
+                count += 1
                 print(f'{number} is a prime number')
         except GeneratorExit:
             print(f'Number of times when number was a prime number: {count}\n')
