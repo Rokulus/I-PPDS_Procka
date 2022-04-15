@@ -16,10 +16,10 @@ async def jokes(names):
 
 
 def print_json(data):
-    print('\n------------------------------')
+    print('==========')
     print('Joke: ', data['value']['joke'])
     print('Categories of the joke: ', data['value']['categories'])
-    print('------------------------------')
+    print('==========')
 
 
 async def main():
